@@ -36,7 +36,7 @@
         // Make the API call
         $.getJSON(apiURL + "/labelNames", function (data) {
             $.each(data, function (key, value) {
-                var abbr = value.substr(0, 3),
+                var abbr = value.substr(0, 20),
                     k = key + "-label";
                     
                 labelAbbrs[k] = abbr;
@@ -54,7 +54,7 @@
                 a = labelAbbrs[label];
 
             if (a) {
-                $(this).text(a).css({"height": labelHeight});
+                $(this).text(a).css({"text-overflow":"clip","width":"auto","font-size":".7em","font-weight":"normal","font-family":"verdana","padding":"0 .7em","height": labelHeight});
             }
         });
     }
